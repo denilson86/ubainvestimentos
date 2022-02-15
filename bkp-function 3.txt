@@ -1,0 +1,31 @@
+
+    function Enviarmail(){
+      var name = document.getElementById("fname").value;
+      var mail = document.getElementById("femail").value;
+      var fone = document.getElementById("ffone").value;
+      var coment = document.getElementById("fmessage").value;
+      var varData = {'name': name, 'mail': mail, 'fone': fone, 'coment': coment};
+      //var posting = $.post( './forms/contato1.php', varData);
+
+      // $.post('./forms/contato1.php', varData)
+      // .done(function(data) {
+      //   console.log("ok - sucesso.");
+      //   $("#modalEmail").show();
+      //   $("html,body").css({"overflow":"hidden"});
+      //   alert("sucesso");
+      // });
+      $.ajax({
+        type: 'POST',
+        url: './forms/contato1.php',
+        data: varData,
+        dataType: 'json',
+        success: function ( data ) {
+		  console.log("sucesso-email");
+          window.location.href = 'email-send.html';
+        }
+      });
+	});
+	
+	
+	
+quero comprar apto na praia
